@@ -89,37 +89,59 @@ public class SLG_ME_MainFrame extends javax.swing.JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                boolean bLoaderInAction = m_pLoaderRunnable != null && m_pLoaderThread.isAlive();
-                prgrsbarFile01.setVisible( bLoaderInAction && m_pLoaderRunnable.GetFileN() == 0);
-                prgrsbarFile02.setVisible( bLoaderInAction && m_pLoaderRunnable.GetFileN() == 1);
-                prgrsbarFile03.setVisible( bLoaderInAction && m_pLoaderRunnable.GetFileN() == 2);
-                prgrsbarFile04.setVisible( bLoaderInAction && m_pLoaderRunnable.GetFileN() == 3);
-                prgrsbarFile05.setVisible( bLoaderInAction && m_pLoaderRunnable.GetFileN() == 4);
-                
-                chkFile1.setEnabled( !bLoaderInAction);
-                chkFile2.setEnabled( !bLoaderInAction);
-                chkFile3.setEnabled( !bLoaderInAction);
-                chkFile4.setEnabled( !bLoaderInAction);
-                chkFile5.setEnabled( !bLoaderInAction);
-                
-                edtFile1TStartValue.setEnabled( !bLoaderInAction);
-                edtFile1TStopValue.setEnabled(  !bLoaderInAction);
-                edtFile2TStartValue.setEnabled( !bLoaderInAction);
-                edtFile2TStopValue.setEnabled(  !bLoaderInAction);
-                edtFile3TStartValue.setEnabled( !bLoaderInAction);
-                edtFile3TStopValue.setEnabled(  !bLoaderInAction);
-                edtFile4TStartValue.setEnabled( !bLoaderInAction);
-                edtFile4TStopValue.setEnabled(  !bLoaderInAction);
-                edtFile5TStartValue.setEnabled( !bLoaderInAction);
-                edtFile5TStopValue.setEnabled(  !bLoaderInAction);
-                
-                if( bLoaderInAction)
+                if( m_pMainActionRunnable != null && m_pMainActionThread.isAlive()) {
+                    chkFile1.setEnabled( false);
+                    chkFile2.setEnabled( false);
+                    chkFile3.setEnabled( false);
+                    chkFile4.setEnabled( false);
+                    chkFile5.setEnabled( false);
+
+                    edtFile1TStartValue.setEnabled( false);
+                    edtFile1TStopValue.setEnabled(  false);
+                    edtFile2TStartValue.setEnabled( false);
+                    edtFile2TStopValue.setEnabled(  false);
+                    edtFile3TStartValue.setEnabled( false);
+                    edtFile3TStopValue.setEnabled(  false);
+                    edtFile4TStartValue.setEnabled( false);
+                    edtFile4TStopValue.setEnabled(  false);
+                    edtFile5TStartValue.setEnabled( false);
+                    edtFile5TStopValue.setEnabled(  false);
+
                     btnProcess.setEnabled( false);
+                }
                 else {
-                    btnProcess.setEnabled( 
-                            chkFile1.isSelected() || chkFile2.isSelected() || 
-                            chkFile3.isSelected() || chkFile4.isSelected() || 
-                            chkFile5.isSelected());
+                    boolean bLoaderInAction = m_pLoaderRunnable != null && m_pLoaderThread.isAlive();
+                    prgrsbarFile01.setVisible( bLoaderInAction && m_pLoaderRunnable.GetFileN() == 0);
+                    prgrsbarFile02.setVisible( bLoaderInAction && m_pLoaderRunnable.GetFileN() == 1);
+                    prgrsbarFile03.setVisible( bLoaderInAction && m_pLoaderRunnable.GetFileN() == 2);
+                    prgrsbarFile04.setVisible( bLoaderInAction && m_pLoaderRunnable.GetFileN() == 3);
+                    prgrsbarFile05.setVisible( bLoaderInAction && m_pLoaderRunnable.GetFileN() == 4);
+
+                    chkFile1.setEnabled( !bLoaderInAction);
+                    chkFile2.setEnabled( !bLoaderInAction);
+                    chkFile3.setEnabled( !bLoaderInAction);
+                    chkFile4.setEnabled( !bLoaderInAction);
+                    chkFile5.setEnabled( !bLoaderInAction);
+
+                    edtFile1TStartValue.setEnabled( !bLoaderInAction);
+                    edtFile1TStopValue.setEnabled(  !bLoaderInAction);
+                    edtFile2TStartValue.setEnabled( !bLoaderInAction);
+                    edtFile2TStopValue.setEnabled(  !bLoaderInAction);
+                    edtFile3TStartValue.setEnabled( !bLoaderInAction);
+                    edtFile3TStopValue.setEnabled(  !bLoaderInAction);
+                    edtFile4TStartValue.setEnabled( !bLoaderInAction);
+                    edtFile4TStopValue.setEnabled(  !bLoaderInAction);
+                    edtFile5TStartValue.setEnabled( !bLoaderInAction);
+                    edtFile5TStopValue.setEnabled(  !bLoaderInAction);
+
+                    if( bLoaderInAction)
+                        btnProcess.setEnabled( false);
+                    else {
+                        btnProcess.setEnabled( 
+                                chkFile1.isSelected() || chkFile2.isSelected() || 
+                                chkFile3.isSelected() || chkFile4.isSelected() || 
+                                chkFile5.isSelected());
+                    }
                 }
             }
             
