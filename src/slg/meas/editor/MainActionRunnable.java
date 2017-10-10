@@ -95,6 +95,9 @@ public class MainActionRunnable implements Runnable {
                 
                     
             }
+            
+            m_pParent.prgrsbarMain.setValue( 0);
+            
         }
         
     }
